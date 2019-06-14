@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 映射 接口 IBookDao -->
+<mapper namespace="com.dao.GroupDao">
+
+    <!--    <resultMap id="BaseResultMap" type="com.nf147.oukele.entity.Demo">-->
+    <!--        <id column="id" jdbcType="INTEGER" property="id" />-->
+    <!--        <result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--        <result column="sex" jdbcType="VARCHAR" property="sex" />-->
+    <!--        <result column="age" jdbcType="INTEGER" property="age" />-->
+    <!--    </resultMap>-->
+
+    <insert id="insert" parameterType="com.entity.GroupDraft">
+        INSERT INTO `group_draft` (date,subject,application_round,application_chapter,province,textbook_version,word_path)
+                        VALUES (NOW(), #{subject,jdbcType=VARCHAR}, #{application_round,jdbcType=VARCHAR},
+                        #{application_chapter,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+                        #{textbook_version,jdbcType=VARCHAR}, #{word_path,jdbcType=VARCHAR});
+    </insert>
+
+</mapper>
