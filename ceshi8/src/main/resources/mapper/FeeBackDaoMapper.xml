@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 映射 接口 IBookDao -->
+<mapper namespace="com.dao.FeeBackDao">
+
+    <!--    <resultMap id="BaseResultMap" type="com.nf147.oukele.entity.Demo">-->
+    <!--        <id column="id" jdbcType="INTEGER" property="id" />-->
+    <!--        <result column="name" jdbcType="VARCHAR" property="name" />-->
+    <!--        <result column="sex" jdbcType="VARCHAR" property="sex" />-->
+    <!--        <result column="age" jdbcType="INTEGER" property="age" />-->
+    <!--    </resultMap>-->
+
+    <insert id="insert" parameterType="com.entity.Feeback">
+        INSERT INTO `feedback` (date,name,school_name,school_type_id,feedback_iphone,product_id,feedbac_subject_id,feedbac_idea)
+                        VALUES (NOW(), #{name,jdbcType=VARCHAR}, #{school_name,jdbcType=VARCHAR}, #{school_type_id,jdbcType=BIGINT}, #{feedback_iphone,jdbcType=BIGINT}, #{product_id,jdbcType=BIGINT}, #{feedbac_subject_id,jdbcType=BIGINT},#{feedbac_idea,jdbcType=VARCHAR});
+    </insert>
+
+</mapper>

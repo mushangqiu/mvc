@@ -1,0 +1,91 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>衡水金卷-组稿</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/rem.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/layer/2.3/layer.js"></script>
+</head>
+<body>
+	<div class="composition">
+		<p class="head">衡水金卷原创试题组稿</p>
+		<p class="banner"></p>
+		<div class="main wrapper">
+			<section>
+				<p class="title"><span>*</span> 1.科目</p>
+				<input type="text" class="js-1">
+			</section>
+			<section>
+				<p class="title"><span>*</span> 2.应用轮次<span>（一轮、二轮或同步）</span></p>
+				<input type="text" class="js-2">
+			</section>
+			<section>
+				<p class="title"><span>*</span> 3.应用章节<span>（一轮、二轮或同步）</span></p>
+				<input type="text" class="js-3">
+			</section>
+			<section>
+				<p class="title"><span>*</span> 4.适用省份</p>
+				<input type="text" class="js-4">
+			</section>
+			<section>
+				<p class="title"><span>*</span> 5.教材版本</p>
+				<input type="text" class="js-5">
+			</section>
+			<section class="uploadWord">
+				<p class="title"><span>*</span> 试题内容<span>（含答案及详细解析，可根据试题内容调整表格大小）</span></p>
+				<div class="up">
+					<p>请上传word文档</p>
+					<input type="file">
+				</div>
+				<input type="text" readonly="readonly">
+			</section>
+			<button class="submit">提交信息</button>
+		</div>
+		<p style="height: 0.43rem;"></p>
+		<div class="footer">
+			<div class="item item00" onclick="location.href='feedback.html'">
+				<p class="img"></p>
+				<span>反馈</span>
+			</div>
+			<div class="item item11 item1 itemCur" onclick="location.href='composition.html'">
+				<p class="img"></p>
+				<span class="colorCur">组稿</span>
+			</div>
+			<div class="item item22" onclick="location.href='user.html'">
+				<p class="img"></p>
+				<span>我的</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+	$(document).on('change','.up>input', function( e ){
+        //e.currentTarget.files 是一个数组，如果支持多个文件，则需要遍历
+        var name = e.currentTarget.files[0].name;
+        $('.uploadWord>input').val(name);
+    });
+	//表单验证
+    $('.submit').click(function(){
+    	if(!$('.js-1').val()){
+    		layer.msg('请输入科目');
+    	}else if(!$('.js-2').val()){
+    		layer.msg('请输入应用轮次');
+    	}else if(!$('.js-3').val()){
+    		layer.msg('请输入应用章节');
+    	}else if(!$('.js-4').val()){
+    		layer.msg('请输入适用省份');
+    	}else if(!$('.js-5').val()){
+    		layer.msg('请输入教材版本');
+    	}else if(!$('.uploadWord>input').val()){
+    		layer.msg('未上传文档')
+    	}else{
+    		//提交
+    		//跳成功页
+    		location.href='compositionSubmit.html';
+    	}
+    })
+</script>
